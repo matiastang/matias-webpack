@@ -1,2 +1,4 @@
-# matias-webpack
-webpack学习、使用
+# webpack
+
+
+`webpack`学习、使用过程中相关知识记录。
