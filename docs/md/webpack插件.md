@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-10 15:44:37
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-18 11:01:00
+ * @LastEditTime: 2021-05-18 14:04:49
  * @Description: webpack插件
 -->
 # webpack插件
@@ -164,3 +164,70 @@ plugins: [
             new CaseSensitivePathsPlugin()                      
         ]
 ```
+
+防止重复CommonsChunkPlugin（code-split）
+* 在webpack配置文件的plugins配置这一项（不过这个方式，4.0已经过时了）
+
+new webpack.optimize.CommonsChunkPlugin({
+    name: 'common'
+})
+* webpack 4.0新的防重复分割方式,配置optimization。
+
+optimization: {
+    splitChunks: {
+        cacheGroups: {
+            commonjs: {
+                chunks: 'initial',
+                minChunks: 2,
+                maxInitialRequests: 5,
+                minSize: 0
+            },
+            vendor: {
+                test: /node_modules/,
+                chunks: 'initial',
+                name: 'vendor',
+                priority: 10,
+                enforce: true
+            }
+        }
+    },
+    runtimeChunk: true
+},
+
+Vue中懒加载
+推荐一篇文章：[Lazy Loading in Vue using Webpack's Code Splitting](https://link.zhihu.com/?target=https%3A//alexjover.com/blog/lazy-load-in-vue-using-webpack-s-code-splitting/)
+
+Lazy load in Vue components
+Vue 允许你以一个工厂函数的方式定义你的组件，这个工厂函数会异步解析你的组件定义。
+
+Vue.component('async-webpack-example', function (resolve) {
+  // 这个特殊的 `require` 语法将会告诉 webpack
+  // 自动将你的构建代码切割成多个包，这些包
+  // 会通过 Ajax 请求加载
+  require(['./my-async-component'], resolve)
+})
+也可以在工厂函数中返回一个 Promise。这是在普通项目中，最常用的语法。
+
+Vue.component(
+  'async-webpack-example',
+  // 这个 `import` 函数会返回一个 `Promise` 对象。
+  () => import('./my-async-component')
+)
+Lazy load in Vue router
+最常用的技术：Vue-router的路由懒加载
+
+写法：
+
+const Foo = () => import('./Foo.vue')
+
+const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: Foo }
+  ]
+})
+把组件按组分块的写法：
+
+const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+Lazy load a Vuex module
