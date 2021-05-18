@@ -2,13 +2,14 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-12 10:26:00
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-12 10:51:53
+ * @LastEditTime: 2021-05-18 13:57:15
  * @Description: WebpackPlugin
 -->
 # WebpackPlugin
 
 [WebpackPlugin](https://www.cnblogs.com/etoumao/p/13496636.html)
 [参考](https://www.html.cn/doc/webpack2/development/plugin-patterns/)
+[Webpack plugin](https://champyin.com/)
 compilation.modules: 一个存放编译中涉及的模块（构建时的输入）的数组。每个模块处理了你源码库中的一个原始文件的构建。
 
 module.fileDependencies: 一个存放模块中包含的源文件路径的数组。它包含了 JavaScript 源文件自身（例如：index.js），和所有被请求（required）的依赖资源文件（样式表，图像等等）。想要知道哪些源文件属于这个模块时，检查这些依赖是有帮助的。
