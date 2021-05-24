@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-10 15:44:37
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-18 14:04:49
+ * @LastEditTime: 2021-05-24 15:48:11
  * @Description: webpack插件
 -->
 # webpack插件
@@ -19,9 +19,11 @@
     plugins: [
         // 配置全局直接使用，不需要导入
         new webpack.ProvidePlugin({
-            _: 'lodash',
+            _: 'lodash',// 三方库
+            _concat: ['lodash', 'concat'], // 三方库中的某个工具函数可以全局使用
+            message: ['antd', 'message'],
             $: 'jquery',
-            api: 'api'
+            api: 'api'// 自定义文件
         })
         ...
     ],
