@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-10 15:44:51
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-26 16:34:45
+ * @LastEditTime: 2021-05-26 18:15:56
  * @Description: webpack常用加载器
 -->
 # webpack常用加载器
@@ -12,6 +12,15 @@
 `loader` 也变相地扩展了 `webpack` ，但是它只专注于转化文件。
 `plugin` 的功能更加丰富，不仅局限与资源的加载。
 `loader` 必定是一个文件加载为另外一个文件，而 `plugin` 可能是综合多个文件合并为一个文件。
+
+## 常用加载器
+
+### postcss-loader
+
+[postcss-loader npm package](https://www.npmjs.com/package/postcss-loader)
+[postcss-loader 中文文档](https://webpack.docschina.org/loaders/postcss-loader/)
+
+`postcss-loader`使`.css`自动添加`兼容浏览器`前缀。
 
 ## 引入SCSS
 引入 `.scss` 文件。
