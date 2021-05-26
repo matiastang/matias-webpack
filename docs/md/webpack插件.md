@@ -2,14 +2,14 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-10 15:44:37
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-24 15:48:11
+ * @LastEditTime: 2021-05-26 16:30:34
  * @Description: webpack插件
 -->
 # webpack插件
 
 ## webpack内置插件
 
-## ProvidePlugin
+### ProvidePlugin
 
 `webpack`配置`ProvidePlugin`后，在使用时将不再需要`import`和`require`进行引入，直接使用即可。
 
