@@ -2,10 +2,19 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-10 15:44:51
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-26 18:15:56
+ * @LastEditTime: 2021-05-31 17:50:12
  * @Description: webpack常用加载器
 -->
-# webpack常用加载器
+<!-- TOC -->
+
+- [1. webpack常用加载器](#1-webpack常用加载器)
+    - [1.1. 常用加载器](#11-常用加载器)
+        - [1.1.1. postcss-loader](#111-postcss-loader)
+        - [html-loader](#html-loader)
+    - [1.2. 引入SCSS](#12-引入scss)
+
+<!-- /TOC -->
+# 1. webpack常用加载器
 
 `webpack`使用和拓展通过两种方式来实现：`加载插件`或`安装加载器`。
 `加载器`主要用来加载一个资源文件，`插件`用来加强、扩展功能。
@@ -13,16 +22,21 @@
 `plugin` 的功能更加丰富，不仅局限与资源的加载。
 `loader` 必定是一个文件加载为另外一个文件，而 `plugin` 可能是综合多个文件合并为一个文件。
 
-## 常用加载器
+## 1.1. 常用加载器
 
-### postcss-loader
+### 1.1.1. postcss-loader
 
 [postcss-loader npm package](https://www.npmjs.com/package/postcss-loader)
 [postcss-loader 中文文档](https://webpack.docschina.org/loaders/postcss-loader/)
 
 `postcss-loader`使`.css`自动添加`兼容浏览器`前缀。
 
-## 引入SCSS
+### html-loader
+
+[html-loader](https://www.npmjs.com/package/html-loader)
+将 HTML 导出为字符串。当编译器需要时，HTML 被最小化。
+
+## 1.2. 引入SCSS
 引入 `.scss` 文件。
 
 要求
